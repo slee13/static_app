@@ -1,31 +1,93 @@
 <% if signed_in? %>
-  <div class="row">
-    <aside class="span4">
+<div class="jumbotron">
+      <div class="container" style="height: 350px; display:block; text-align: center;">
       <section>
         <%= render 'shared/user_info' %>
       </section>
       <section>
         <%= render 'shared/micropost_form' %>
       </section>
-    </aside>
+  </div>
+</div>
+  <div class="row">
     <div class="span8">
-      <h3>Micropost Feed</h3>
+      <h3>COMMUNITY NEEDS</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>
-<% else %>
-  <div class="center hero-unit">
-    <h1>Welcome to the Sample App</h1>
 
-    <h2>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </h2>
+
+
+
+<% else %>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" style="height: 450px; display:block; text-align: center;">
+          <p style="font-size: 18px;">trade skills, services, and goods.</p>
+          <%= link_to image_tag("bartershop-logo-05.png", alt: "bartershop", :style => "width: 500px;"), '#'%>
+         <p style="font-size: 18px;">discover your local community.</p> <br><br>
+
+         <%= link_to "Get Started!", signup_path,
+                                class: "btn btn-primary btn-lg" %>
+
+
+        <!--<p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#myModal">Get Started &raquo;</a></p>-->
+          
+          
+          <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Welcome!</h4>
+              </div>
+              <div class="modal-body">
+                Create an Account
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Done</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+          
+          
+          
+          
+        <p style="font-size: 12px;">Already on BarterShop? <br> <a href="https://thawing-hollows-2532.herokuapp.com/login">Login here.</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+          
+    
+          
+        <div class="col-md-4">
+          <%= link_to image_tag("_staticpage/CreatePost.jpg", alt: "grey", :style => "margin-left: -15px; width: 270px;"), '#'%>
+        </div>
+
+        <div class="col-md-4">
+          <%= link_to image_tag("_staticpage/UserPosts.jpg", alt: "grey", :style => "margin-left: -15px; width: 270px;"), '#'%>
+        </div>
+
+        <div class="col-md-4">
+          <%= link_to image_tag("_staticpage/UserPosts2.jpg", alt: "grey", :style => "margin-left: -15px; width: 270px;"), '#'%>
+        </div>
+
+        <div class="col-md-4">
+          <%= link_to image_tag("_staticpage/UserPosts3.jpg", alt: "grey", :style => "margin-left: -15px; width: 270px;"), '#'%>
+        </div>
+      </div>
+
+
+    </div> <!-- /container -->
 
     <%= link_to "Sign up now!", signup_path,
                                 class: "btn btn-large btn-primary" %>
-  </div>
 
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>
