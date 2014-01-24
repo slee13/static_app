@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models: 
+      user: "Customer"
+    attributes:
+      user:
+        email: "Email address"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              format: "must be an MIT address"
