@@ -1,13 +1,18 @@
 <% provide(:title, 'Help') %>
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container" style="height: 250px; display:block; text-align: center; padding-top: 50px;">
+      <div class="container" style="height: 250px; display:block; text-align: center; padding-top: 0px;">
         
         <%= link_to image_tag("bartershop-logo-05.png", alt: "grey", :style => "padding-bottom: 20px; width: 300px;"), '#'%>
         <p style="font-size: 18px;">BarterShop creates a community space for easy trading with trusted peers. <br><b> Trade skills, services, or goods in just a few steps!</b></p> <br>
         
-       </div>
-         
+       
+
+       <%= link_to "Get Started!", signup_path,
+                                class: "btn btn-primary btn-lg" %>
+        <p style="font-size: 12px;">Already on BarterShop? <br> <a href="https://thawing-hollows-2532.herokuapp.com/login">Login here.</a></p>
+        </div>
+
     </div>
 
 <%= link_to image_tag("flow.png", alt: "flow"), '#'%>

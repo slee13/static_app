@@ -1,7 +1,7 @@
 <%= form_for(@offer) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "I can offer in exchange..." %>
+    <%= f.text_area :content, placeholder: "I can offer ..." %>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

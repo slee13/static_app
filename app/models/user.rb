@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
     # This is preliminary. See "Following users" for the full implementation.
     #Micropost.where("user_id = ?", id)
     Micropost.all
+    
   end
 
   def pickofferform
