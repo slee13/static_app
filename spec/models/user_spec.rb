@@ -20,6 +20,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:microposts) }
+  it { should respond_to(:offers) }
   it { should respond_to(:feed) }
 
   it { should be_valid }
@@ -151,4 +152,16 @@ describe User do
       its(:feed) { should_not include(unfollowed_post) }
     end
   end
+
+  describe "offers associations" do
+    it "should destroy associated offers" do
+      offers = @user.offers.to_a
+      @user.destroy
+      expect(offers).not_to be_empty
+      offers.each do |offer|
+        expect(Offer.where(id: offer.id)).to be_empty
+      end
+    end
+  end
+  
 end

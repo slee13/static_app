@@ -1,33 +1,60 @@
 <% provide(:title, @user.name) %>
 
 <div class="jumbotron">
-      <div class="container" style="height: 200px; display:block; text-align: center;">
-        <aside class="span4">
-    <section>
-      <h3>
-        <%= gravatar_for @user %>
+
+  <div class="container" style="height: 200px; display:block; text-align: center;">
+    <div style="margin0right: 100px;"><%= gravatar_for(@user, size: 150) %>
+    </div>
+
+    <!--div for text area-->
+    <div>
+      <h1 style="text-align:left; margin-top: -10px;">
         <%= @user.name %>
-      </h3>
-</aside>
-      <section>
-      <h4>YOUR 'HAVES'</h4>
-      <ol >
-        <li>...to be developed...</li>
-      </ol>
-    </section>
-    </section>
+      </h1>
+       <p style="text-align:left; margin-top: -10px; line-height: 0%">
+       <%= @user.name %>
+      </p>
+          <p style="text-align:left;">
+        <%= @user.name %>
+      </p>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="span8">
     <% if @user.microposts.any? %>
-      <h3>YOUR NEEDS (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+      <div class="row">
+        <div class="col-md-6">
+            <h3 style="text-align: center;">YOUR NEEDS (<%= @user.microposts.count %>)</h3>
+        <table class="table table-hover">
+            <tbody>
+                <%= render @microposts %>
+                <%= will_paginate @microposts %>
+            </tbody>
+        </table>
+      </div>
+      <% end %>
 
-  </div>
-</div>
+      <div class="col-md-6">
+        <% if @user.offers.any? %>
+          <% if current_user?(@user) %>
+            <section>
+              <%= render 'shared/offer_form' %>
+            </section>
+          <% end %>
+        <h3>YOUR HAVES (<%= @user.offers.count %>)</h3>
+        <ol class="microposts" style="padding-left: 30px;">
+          <%= render @offers %>
+        </ol>
+        
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+

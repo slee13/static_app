@@ -14,4 +14,9 @@ FactoryGirl.define do
     content "I need socks"
     user
   end
+
+  factory :offer do
+    content "1 hour tutorial on Rails"
+    user
+  end
 end

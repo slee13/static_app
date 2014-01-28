@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @offer  = @user.offers.build
+    @offers = @user.offers
   end
-
+  
   def new
   	@user = User.new
   end
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
       sign_in @user
     	flash[:success] = "Welcome to your local Barter Shop!"
     	redirect_to @user
+      @offer  = @user.offers.build
     else
       render 'new'
     end

@@ -95,6 +95,19 @@ describe "Authentication" do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end
+
+      describe "in the Offers controller" do
+
+        describe "submitting to the create action" do
+          before { post offers_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete offer_path(FactoryGirl.create(:offer)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
