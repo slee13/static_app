@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   def pickofferform
     #Offer.joins(:offer_id.user => user.id)
-    Micropost.all
+
     Offer.where("user_id = ?", id)
   end
 

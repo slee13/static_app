@@ -11,7 +11,7 @@
      <%= fields_for(@offer) do |u| %>
    <div class="field" style="clear: left;">
     <br>
-    <b> I CAN OFFER: </b>
+    <%= link_to "What "+feed_item.user.name+" Can Trade", current_user %>
       <%= render partial: 'shared/pickofferform_item', collection: @pickofferform_items %>
     </div>
   <% end %>
