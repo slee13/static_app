@@ -1,23 +1,12 @@
 <% if signed_in? %>
-<div class="jumbotron">
-      <div class="container" style="height: 350px; display:block; text-align: center;">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-  </div>
+  <div class="jumbotron" >
+    <div style="width: 100%; height: 200px; display:block; margin-left: auto; margin-right: auto; padding-top: 50px;">
+          <%= link_to image_tag("bartershop_logo.png", alt: "bartershop", :style => "width: 500px; display: block; margin-left: auto; margin-right: auto;"), '#'%>
+    </div> 
 </div>
-  <div class="row">
-    <div class="span8">
-      <h3>COMMUNITY NEEDS</h3>
-      <%= render 'shared/feed' %>
-    </div>
-  </div>
-
-
-
+   
+<%= render 'shared/feed' %>
+  
 
 <% else %>
 

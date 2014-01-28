@@ -1,24 +1,30 @@
 <% provide(:title, @user.name) %>
 
 <div class="jumbotron">
-
-  <div class="container" style="height: 200px; display:block; text-align: center;">
-    <div style="margin0right: 100px;"><%= gravatar_for(@user, size: 150) %>
+  <div style="margin-top: -100px; height: 180px;">
+    <div style="display:block; margin-left: 25%; margin-right: 25%;">
+    <div style="margin-top: 100px;"><%= gravatar_for(@user, size: 160) %>
     </div>
 
     <!--div for text area-->
     <div>
-      <h1 style="text-align:left; margin-top: -10px;">
+      <h1 style="text-align:left; margin-top: -15px; font-size: 40px;">
         <%= @user.name %>
       </h1>
-       <p style="text-align:left; margin-top: -10px; line-height: 0%">
-       <%= @user.name %>
-      </p>
-          <p style="text-align:left;">
-        <%= @user.name %>
+        <p style="text-align:left; margin-top: -20px; line-height: 0%">
+          <%= link_to image_tag("icon-map.png", alt: "map", :style =>"width: 30px; align: left;"), mailto:@user.email%>
+        Location here
+            </p>
+        <p style="text-align:left; margin-top: -10px; line-height: 0%">
+          <%= link_to image_tag("icon-trade.png", alt: "map", :style =>"width: 30px; align: left;")%>
+        <%= @user.microposts.count %> Needs, <%= @user.offers.count %> Haves
+            </p>
+        <p style="text-align:left; margin-top: -10px; line-height: 0%">
+       <%= link_to image_tag("icon-mail.png", alt: "mail", :style =>"width: 30px;"), mailto:@user.email%> Send a message
       </p>
     </div>
   </div>
+</div>
 </div>
 
     <% if @user.microposts.any? %>
@@ -35,16 +41,20 @@
       <% end %>
 
       <div class="col-md-6">
-        <% if @user.offers.any? %>
-          <% if current_user?(@user) %>
+        <h3>YOUR HAVES (<%= @user.offers.count %>)
+          </h3>
+        <% if current_user?(@user) %>
             <section>
               <%= render 'shared/offer_form' %>
             </section>
           <% end %>
-        <h3>YOUR HAVES (<%= @user.offers.count %>)</h3>
-        <ol class="microposts" style="padding-left: 30px;">
-          <%= render @offers %>
-        </ol>
+
+        <% if @user.offers.any? %>
+
+          <ol class="microposts" style="padding-left: 30px;">
+            <%= render @offers %>
+            <%= will_paginate @offers %>
+          </ol>
         
         <% end %>
       </div>

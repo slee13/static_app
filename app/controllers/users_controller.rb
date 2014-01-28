@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @offer  = @user.offers.build
-    @offers = @user.offers
+    @offers = @user.offers.paginate(page: params[:page])
   end
   
   def new

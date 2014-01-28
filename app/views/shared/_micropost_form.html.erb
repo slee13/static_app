@@ -1,7 +1,21 @@
+
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Create a post for something you need..." %>
+    <%= f.text_area :content, placeholder: "something you need (tennis lessons, food, tutoring, etc!)" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+
+
+  <h3>and can offer</h3>
+  <h6><%= link_to "(Add more skills/goods to your profile)", current_user %> </h6>
+  <%= fields_for(@offer) do |u| %>
+	 <div class="field">
+	  	<%= render partial: 'shared/pickofferform_item', collection: @pickofferform_items %>
+	  </div>
+
+	<% end %>
+ 
+<div style="padding: 10px 0px 10px 0px;">
+<%= f.submit "Post", class: "btn btn-info" %>
+</div>
 <% end %>

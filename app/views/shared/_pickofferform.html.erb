@@ -1,0 +1,8 @@
+<%= @offer.recent(5).each do |f| %>
+    <h3>I can offer in exchange...</h3>
+  <div>
+  	<%= render partial: 'shared/pickofferform_item', collection: @pickofferform_items %>
+  </div>
+
+  <%= #f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -419,10 +419,9 @@ body {
   border: 1px solid #dddddd;
   position: relative;
   min-height: 1px;
-  padding-right: 0px;
-  padding-left: 30px;
   margin-right: 10px;
   margin-bottom: 10px;
+ 
 }
 
 @media (min-width: 992px) {
@@ -441,7 +440,8 @@ body {
     float: left;
   }
   .col-md-4 {
-    width: 23.33333333333333%;
+    width: 23.333%;
+     padding: 10px;
   }
 }
 
